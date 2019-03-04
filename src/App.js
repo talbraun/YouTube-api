@@ -16,10 +16,13 @@ state={
   componentDidMount(){
 
 // Optionally the request above could also be done as
-axios.get('https://www.youtube.com/embed', {
+    axios.get('https://www.googleapis.com/youtube/v3/search', {
   params: {
-    listType: 'search',
-    list: this.state.searcKey
+    q: 'surfing',
+    part:'snippet',
+    maxResults:25,
+    type:''
+    
   }
 })
 .then(function (response) {
