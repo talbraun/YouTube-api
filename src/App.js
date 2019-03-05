@@ -5,7 +5,7 @@ import Footer from './component/Footer/Footer'
 import Header from './component/Header/Header'
 import axios from 'axios'
 
-
+const KEY='AIzaSyBsZldQd3_7ho8O7LxjnURYD2cwL55V0sU';
 
 class App extends Component {
 
@@ -18,10 +18,10 @@ state={
 // Optionally the request above could also be done as
     axios.get('https://www.googleapis.com/youtube/v3/search', {
   params: {
-    q: 'surfing',
+    q:this.state.searcKey,
     part:'snippet',
-    maxResults:25,
-    type:''
+    key:KEY
+   
     
   }
 })

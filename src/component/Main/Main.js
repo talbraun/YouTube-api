@@ -1,9 +1,12 @@
 import React from 'react'
+import SearchField from "react-search-field";
+import classes from './Main.css'
+
 
 const Main = (props) =>{
     return(
         <div>
-            <h1>Main</h1>
+            <div className={classes.searchbar}><SearchField/></div>
         </div>)
     
 }
