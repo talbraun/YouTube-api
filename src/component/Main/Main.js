@@ -6,7 +6,11 @@ import classes from './Main.css'
 const Main = (props) =>{
     return(
         <div>
-            <div className={classes.searchbar}><SearchField/></div>
+            <div className={classes.searchbar}>
+                <SearchField
+                
+                />
+            </div>
         </div>)
     
 }
