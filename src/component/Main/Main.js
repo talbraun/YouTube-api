@@ -8,8 +8,9 @@ const Main = (props) =>{
         <div>
             <div className={classes.searchbar}>
                 <SearchField
-                
+                onSearchClick={props.search}
                 />
+                
             </div>
         </div>)
     

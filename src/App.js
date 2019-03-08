@@ -10,13 +10,14 @@ const KEY='AIzaSyBsZldQd3_7ho8O7LxjnURYD2cwL55V0sU';
 class App extends Component {
 
 state={
-  searcKey:'oasisn'
+  searcKey:'oasisn',
+  songs:""
 }
 
-  componentDidMount(){
 
+  getData(){
 // Optionally the request above could also be done as
-    axios.get('https://www.googleapis.com/youtube/v3/search', {
+axios.get('https://www.googleapis.com/youtube/v3/search', {
   params: {
     q:this.state.searcKey,
     part:'snippet',
@@ -25,21 +26,41 @@ state={
     
   }
 })
-.then(function (response) {
+.then((response) => {
   console.log(response);
+
+  this.setState({songs:response.data.items})
+
 })
 .catch(function (error) {
   console.log(error);
 });
   }
 
+  componentDidMount(){
+    this.getData();
+
+  }
+
+  newSearch = (value) =>{
+this.setState({searcKey:value},() =>{this.getData()}) 
+
+}
+
+
 
 
   render() {
+
+  
+
+
     return (
       <div className="App">
         <Header/>     
-        <Main/>
+        <Main songs={this.state.songs}
+        search={this.newSearch}
+        />
         <Footer/>
       </div>
     );
