@@ -11,7 +11,7 @@ class App extends Component {
 
 state={
   searcKey:'oasisn',
-  songs:""
+  songs:[]
 }
 
 
@@ -57,11 +57,11 @@ this.setState({searcKey:value},() =>{this.getData()})
 
     return (
       <div className="App">
-        <Header/>     
-        <Main songs={this.state.songs}
+        <Header/>   
+        <Main song={this.state.songs}
         search={this.newSearch}
         />
-        <Footer/>
+        <Footer />
       </div>
     );
   }

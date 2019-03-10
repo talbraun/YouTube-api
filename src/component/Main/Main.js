@@ -1,17 +1,21 @@
 import React from 'react'
 import SearchField from "react-search-field";
-import classes from './Main.css'
+import './Main.css'//import classes from './Main.css'
+import SearchResult from './SearchResult/SearchResult'
 
 
 const Main = (props) =>{
     return(
-        <div>
-            <div className={classes.searchbar}>
+        <div className='data'>
+            
                 <SearchField
                 onSearchClick={props.search}
                 />
+                <SearchResult className='searchResult'
+                songList={props.song}
+                />
                 
-            </div>
+            
         </div>)
     
 }
