@@ -2,10 +2,12 @@ import React from 'react'
 import SearchField from "react-search-field";
 import './Main.css'//import classes from './Main.css'
 import SearchResult from './SearchResult/SearchResult'
+import YouTube from 'react-youtube';
+
 
 
 const Main = (props) =>{
-    return(
+    return(<div>
         <div className='data'>
             
                 <SearchField
@@ -13,10 +15,16 @@ const Main = (props) =>{
                 />
                 <SearchResult className='searchResult'
                 songList={props.song}
+                click={props.click}
                 />
-                
-            
-        </div>)
+        </div>
+        <div className='player'>
+        <YouTube
+        videoId={props.songId}
+        />
+        </div>
+        </div>
+        )
     
 }
 export default Main

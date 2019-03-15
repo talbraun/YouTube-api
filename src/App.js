@@ -10,8 +10,9 @@ const KEY='AIzaSyBsZldQd3_7ho8O7LxjnURYD2cwL55V0sU';
 class App extends Component {
 
 state={
-  searcKey:'oasisn',
-  songs:[]
+  searcKey:'oasis',
+  songs:[],
+  nowPlaying:''
 }
 
 
@@ -26,6 +27,7 @@ axios.get('https://www.googleapis.com/youtube/v3/search', {
     
   }
 })
+
 .then((response) => {
   console.log(response);
 
@@ -47,6 +49,12 @@ this.setState({searcKey:value},() =>{this.getData()})
 
 }
 
+playSong = (evt) =>{
+  this.setState({nowPlaying:evt.target.id})
+
+
+}
+
 
 
 
@@ -60,6 +68,8 @@ this.setState({searcKey:value},() =>{this.getData()})
         <Header/>   
         <Main song={this.state.songs}
         search={this.newSearch}
+        click={this.playSong}
+        songId={this.state.nowPlaying}
         />
         <Footer />
       </div>
