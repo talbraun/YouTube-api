@@ -2,7 +2,9 @@ import React from 'react'
 import SearchField from "react-search-field";
 import './Main.css'//import classes from './Main.css'
 import SearchResult from './SearchResult/SearchResult'
-import YouTube from 'react-youtube';
+import YouTube from '@u-wave/react-youtube';
+import StartPoint from './StartPoint/StartPoint'
+
 
 
 
@@ -17,10 +19,17 @@ const Main = (props) =>{
                 songList={props.song}
                 click={props.click}
                 />
+                <StartPoint
+                sec={props.sec}
+                />
         </div>
         <div className='player'>
         <YouTube
-        videoId={props.songId}
+        video={props.songId}
+        startSeconds={props.ySec}
+        width={640}
+        height={360}
+        autoplay={1}
         />
         </div>
         </div>
